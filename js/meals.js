@@ -3,6 +3,19 @@ const loadMeal = (search) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayMeals(data.meals))
+        .catch(error => console.log(error))
+}
+
+const loadAcync = async () => {
+    const url = `https://randomuser.me/api/?gender=female`
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        console.log(data.results[0].email)
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 
 const displayMeals = meals => {
